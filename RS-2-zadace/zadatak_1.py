@@ -36,4 +36,5 @@ print(pomnozi_i_potenciraj(2,2)) #2*5**2 = 10**2 = 100
 #           return None
 
 paran_broj = lambda x: True if x%2 == 0 else None
-print(paran_broj(30))
+print(paran_broj(30)) #True
+print(paran_broj(31)) #None
