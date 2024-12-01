@@ -19,7 +19,7 @@ async def filter_cat_facts(facts):
 async def main():
     start = time.time()
     async with aiohttp.ClientSession() as session:
-        cat_fact_tasks = [asyncio.create_task(get_cat_fact(session, i)) for i in range(20)]
+        cat_fact_tasks = [asyncio.create_task(get_cat_fact(session, i)) for i in range(19)]
 
         actual_cat_facts = await asyncio.gather(*cat_fact_tasks)
 
@@ -30,7 +30,7 @@ async def main():
 
         [print(f'- {fact} \n') for fact in filtered_cat_facts]
 
-    
+       
     
     
     end = time.time()
