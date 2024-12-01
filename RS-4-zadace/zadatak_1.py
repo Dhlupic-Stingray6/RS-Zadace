@@ -19,6 +19,8 @@ async def main():
         #print('user fetching: \n', user_fetching)
     
     users_all = [user for result in results for user in result] #dvostruka petlja!
+    #vanjska petlja for  result in results
+    #unutarnja petlja for user in result. zato što imamo 5 taskova - 5 lista. vanjsa prolazi kroz 5 lista, unutarnja svaku listu zasebno
 
     names = [user['name'] for user in users_all]
     emails = [user['email'] for user in users_all]
