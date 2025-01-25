@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from typing import List
 from models import Film, CreateFilm
 
 app = FastAPI()
@@ -13,7 +12,7 @@ filmovi = [
 
 
 
-@app.get('/filmovi', response_model=List[Film])
+@app.get('/filmovi', response_model=list[Film])
 def dohvati_filmove(genre = None, min_godina : int = 2000):
     pronadeni_filmovi = [film for film in filmovi if(genre is None) and (film['godina'] >= min_godina)]
     return pronadeni_filmovi
