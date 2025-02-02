@@ -27,6 +27,7 @@ def get_all_films(
     )
 ):
     
+    filtered_films = film_loader.film_list
 
     if min_year is not None:
         filtered_films = [film for film in filtered_films if film.Year >= min_year]
