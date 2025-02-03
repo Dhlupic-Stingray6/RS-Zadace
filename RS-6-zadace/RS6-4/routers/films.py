@@ -4,7 +4,7 @@ from models import Film
 from utils import film_loader
 
 
-router = APIRouter(prefix="/filmovi")
+router = APIRouter()
 
 filtered_films = film_loader.film_list
 
@@ -49,7 +49,7 @@ def get_all_films(
     return filtered_films
 
 
-@router.get("/filmovi/imdb/{imdbID}", response_model=Film)
+@router.get("/imdb/{imdbID}", response_model=Film)
 def get_film_by_imdb(imdbID: str):
     film = next((film for film in filtered_films if film.imdbID == imdbID), None)
     if film is None:
@@ -58,7 +58,7 @@ def get_film_by_imdb(imdbID: str):
         )
     return film
 
-@router.get("/filmovi/title/{title}", response_model=Film)
+@router.get("/title/{title}", response_model=Film)
 def get_film_by_title(title: str):
     film = next(
         (film for film in filtered_films if film.Title.lower() == title.lower()), None
